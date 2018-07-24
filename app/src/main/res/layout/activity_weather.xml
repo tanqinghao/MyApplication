@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/wether_bg"
+    tools:context=".WeatherActivity">
+
+
+    <TextView
+        android:id="@+id/tv_weather_tempera"
+        android:layout_width="105dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="25dp"
+        android:gravity="center_horizontal"
+        android:text="23°"
+        android:textColor="#FFFFFF"
+        android:textSize="60sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/img_weather_exit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="236dp"
+        android:layout_marginStart="189dp"
+        android:layout_marginTop="37dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout_weather"
+        app:layout_constraintStart_toEndOf="@+id/tv_weather_tempera"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/shut_down_icon" />
+
+    <ImageView
+        android:id="@+id/img_location"
+        android:layout_width="12dp"
+        android:layout_height="11dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="33dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_weather_tempera"
+        app:srcCompat="@drawable/positioning_icon" />
+
+    <ImageView
+        android:id="@+id/img_weather_quality"
+        android:layout_width="12dp"
+        android:layout_height="14dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="19dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_location"
+        app:srcCompat="@drawable/air_icon" />
+
+    <ImageView
+        android:id="@+id/img_weather_winddirect"
+        android:layout_width="13dp"
+        android:layout_height="14dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_weather_quality"
+        app:srcCompat="@drawable/wind_icon" />
+
+    <ImageView
+        android:id="@+id/img_weather_humidity"
+        android:layout_width="10dp"
+        android:layout_height="14dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="31dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_weather_winddirect"
+        app:srcCompat="@drawable/humidity_icon" />
+
+    <TextView
+        android:id="@+id/tv_weather_location_city"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="28dp"
+        android:text="成都"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/img_location"
+        app:layout_constraintTop_toBottomOf="@+id/tv_weather_tempera"
+        tools:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/tv_weather_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="28dp"
+        android:text="晴"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toEndOf="@+id/tv_weather_location_city"
+        app:layout_constraintTop_toBottomOf="@+id/tv_weather_tempera" />
+
+    <TextView
+        android:id="@+id/tv_weather_quality_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="10dp"
+        android:text="空气质量"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/img_weather_quality"
+        app:layout_constraintTop_toBottomOf="@+id/tv_weather_location_city" />
+
+    <TextView
+        android:id="@+id/tv_weather_quality_pm25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="2dp"
+        android:text="117  优"
+        android:textColor="#FFFFFF"
+        android:textSize="11sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_weather_quality_title" />
+
+    <TextView
+        android:id="@+id/tv_weather_winddirect_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="10dp"
+        android:text="风向"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/img_weather_winddirect"
+        app:layout_constraintTop_toBottomOf="@+id/tv_weather_quality_pm25" />
+
+    <TextView
+        android:id="@+id/tv_weather_winddirect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="2dp"
+        android:text="北极风 1级"
+        android:textColor="#FFFFFF"
+        android:textSize="11sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_weather_winddirect_title" />
+
+    <TextView
+        android:id="@+id/tv_weather_humidity_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="10dp"
+        android:text="湿度"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/img_weather_humidity"
+        app:layout_constraintTop_toBottomOf="@+id/tv_weather_winddirect" />
+
+    <TextView
+        android:id="@+id/tv_weather_humidity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="2dp"
+        android:text="68%"
+        android:textColor="#FFFFFF"
+        android:textSize="11sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_weather_humidity_title" />
+
+    <RelativeLayout
+        android:id="@+id/rl_weather"
+        android:layout_width="161dp"
+        android:layout_height="179dp"
+        android:layout_marginStart="57dp"
+        android:layout_marginTop="46dp"
+        android:background="#FFFFFF"
+        app:layout_constraintStart_toEndOf="@+id/tv_weather_state"
+        app:layout_constraintTop_toBottomOf="@+id/img_weather_exit"
+        tools:ignore="MissingConstraints">
+
+
+        <TextView
+            android:id="@+id/tv_weather_calendar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="21dp"
+            android:gravity="center_horizontal"
+            android:text="2018/04/09 星期一"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/tv_weather_lunar_calendar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="51dp"
+            android:gravity="center_horizontal"
+            android:text="二〇一八年 四月 初七日"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/tv_weather_branch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="70dp"
+            android:gravity="center_horizontal"
+            android:text="戊戌【狗】年 "
+            android:textSize="13sp" />
+
+
+        <TextView
+            android:id="@+id/tv_weather_zodiac"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_weather_branch"
+            android:layout_marginTop="1dp"
+            android:gravity="center_horizontal"
+            android:text="己未月      丙午日"
+            android:textSize="13sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="6dp"
+            android:layout_marginTop="114dp"
+            android:background="#EEEEEE" />
+
+        <TextView
+            android:id="@+id/tv_weather_yi_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="35dp"
+            android:layout_marginStart="16dp"
+            android:text="宜:" />
+
+        <TextView
+            android:id="@+id/tv_weather_suitable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/tv_weather_yi_title"
+            android:layout_marginLeft="40dp"
+            android:text="破土 启鑽 修坟" />
+
+
+        <TextView
+            android:id="@+id/tv_weather_ji_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="16dp"
+            android:text="忌:" />
+
+
+        <TextView
+            android:id="@+id/tv_weather_avoid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="40dp"
+            android:text="嫁娶 移徙 上梁" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout_weather"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="60dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_weather_exit"
+        tools:ignore="MissingConstraints">
+
+        <ListView
+            android:id="@+id/lv_weather_items"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fadeScrollbars="false"
+            android:fadingEdge="none"
+            android:footerDividersEnabled="false"
+            android:headerDividersEnabled="false"
+            android:listSelector="@android:color/transparent"
+            android:overScrollMode="never"
+            android:divider="@drawable/list_item_divider_weather"
+            android:dividerHeight="1dp"
+            android:scrollbars="none">
+
+        </ListView>
+
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>

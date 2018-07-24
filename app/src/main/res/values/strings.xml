@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">My Application</string>
+
+    <string name="spance">&#160;&#160;</string>
+    <string name="default_location">成都</string>
+    <string name="default_temperature">23</string>
+    <string name="default_calader">2018/04/09 星期一</string>
+    <string name="default_week">星期一</string>
+    <string name="default_lunar_calendar">二〇一八年 四月 初七日</string>
+    <string name="default_quality_pm2_5">117 优</string>
+    <string name="default_humidity">82%</string>
+    <string name="default_branch">戊戌【狗】年 </string>
+    <string name="default_zodiac">己未月      丙午日</string>
+    <string name="default_suitable">破土 启鑽 修坟</string>
+    <string name="default_avoid">嫁娶 移徙 上梁</string>
+    <string name="default_item_temperature">37°~42°</string>
+    <string name="year">年</string>
+
+    <string name="weather_suitable">宜:</string>
+    <string name="weather_avoid">忌:</string>
+    <string name="weather_humidity_title">湿度</string>
+    <string name="weather_winddirect_titlle">风向</string>
+    <string name="weather_air_quality">空气质量</string>
+
+</resources>
