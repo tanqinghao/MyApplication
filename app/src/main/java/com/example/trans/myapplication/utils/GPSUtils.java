@@ -41,7 +41,7 @@ public class GPSUtils {
     }
 
 
-    public boolean checkPermission(Activity activity){
+    public boolean checkPermission(Activity activity) {
         if (ContextCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // 没有权限。
             if (ActivityCompat.shouldShowRequestPermissionRationale(activity, Manifest.permission.ACCESS_FINE_LOCATION)) {
@@ -51,9 +51,9 @@ public class GPSUtils {
                 // 申请授权。
                 ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, ACCESS_FINE_LOCATION_COMMANDS_REQUEST_CODE);
             }
-        }else{
+        } else {
             Log.d(TAG, "checkPermission: ");
-            return  true;
+            return true;
         }
         return false;
     }
@@ -67,48 +67,51 @@ public class GPSUtils {
     @SuppressLint("MissingPermission")
     public void getLngAndLat(OnLocationResultListener onLocationResultListener) {
         String gpslocationProvider = null;
-        String netlocationProvider;
+        String netlocationProvider = null;
         mOnLocationListener = onLocationResultListener;
         locationManager = (LocationManager) mContext.getSystemService(Context.LOCATION_SERVICE);
-
         //GPS
         if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
             gpslocationProvider = LocationManager.GPS_PROVIDER;
-            Log.d(TAG, "getLngAndLat: " + gpslocationProvider);
         }   //Network
         else if (locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
             netlocationProvider = LocationManager.NETWORK_PROVIDER;
-            Log.d(TAG, "getLngAndLat: " + netlocationProvider);
         } else {
-            Log.d(TAG, "getLngAndLat: open gps Permissions");
             //跳转启动权限
             Intent intent = new Intent();
             intent.setAction(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
             mContext.startActivity(intent);
+            Log.d(TAG, "getLngAndLat: ");
             return;
         }
 
         //获取Location 优先gps
         @SuppressLint("MissingPermission")
         Location location = locationManager.getLastKnownLocation(gpslocationProvider);
-        Log.d(TAG, "getLngAndLat: " + location);
         if (location != null) {
-            //不为空,显示地理位置经纬度
             if (mOnLocationListener != null) {
                 mOnLocationListener.onLocationResult(location);
             }
-            //监视地理位置变化
+            Log.d(TAG, "getLngAndLat: netlocation：" + location);
             locationManager.requestLocationUpdates(gpslocationProvider, REFRESH_TIME, MIN_DISTANCE, locationListener);
         } else {
-            netlocationProvider = LocationManager.NETWORK_PROVIDER;
-            location = locationManager.getLastKnownLocation(netlocationProvider);
-            if (location != null) {
-                if (mOnLocationListener != null) {
-                    mOnLocationListener.onLocationResult(location);
-                }
+            if (locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
+                netlocationProvider = LocationManager.NETWORK_PROVIDER;
             }
-            //监视网络位置变化
-            locationManager.requestLocationUpdates(netlocationProvider, REFRESH_TIME, MIN_DISTANCE, locationListener);
+            Log.d(TAG, "getLngAndLat: netlocationProvider:" + netlocationProvider);
+            if (netlocationProvider != null) {
+                location = locationManager.getLastKnownLocation(netlocationProvider);
+                Log.d(TAG, "getLngAndLat: netlocation：" + location + "----" + netlocationProvider);
+                if (location != null) {
+                    if (mOnLocationListener != null) {
+                        mOnLocationListener.onLocationResult(location);
+                    }
+                }
+                locationManager.requestLocationUpdates(netlocationProvider, REFRESH_TIME, MIN_DISTANCE, locationListener);
+            }else{
+                Log.d(TAG, "getLngAndLat: netWork is null ");
+            }
+
         }
     }
 

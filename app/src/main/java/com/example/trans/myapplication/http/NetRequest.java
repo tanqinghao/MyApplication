@@ -38,7 +38,7 @@ import okhttp3.Response;
 public class NetRequest {
     private final String TAG = NetRequest.class.getName();
     protected Map<String,Object> params = new HashMap<>();
-    private final String DOMIAN = "http://192.168.1.8/HYAK/";
+    private final String DOMIAN = "http://172.16.108.8/HYAK/";
     private OkHttpClient okHttpClient;
     private String token;
     public String json;

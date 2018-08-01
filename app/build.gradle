@@ -31,4 +31,5 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:3.9.1'
     implementation 'com.android.support:recyclerview-v7:26.1.0'
     implementation 'com.google.code.gson:gson:2.8.5'
+    implementation files('libs/AMap_Location_V4.1.0_20180619.jar')
 }

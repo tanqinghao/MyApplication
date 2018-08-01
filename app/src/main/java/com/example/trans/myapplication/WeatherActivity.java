@@ -118,21 +118,21 @@ public class WeatherActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-
         boolean netResult = NetUtils.isNetworkAvailable(this);
         if (!netResult) {
             Toast.makeText(this, "请连接网络", Toast.LENGTH_SHORT).show();
         }
 
-
+        checkPermission();
         //testlocation
-        boolean result = GPSUtils.getInstance(this).checkPermission(WeatherActivity.this);
+       /* boolean result = GPSUtils.getInstance(this).checkPermission(WeatherActivity.this);
+        Log.d(TAG, "onResume: result------"+result);
         if (result) {
             getLocation();
-        }
+        }*/
     }
 
-   /* //权限判断
+   //权限判断
     private void checkPermission() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // 没有权限。
@@ -147,7 +147,7 @@ public class WeatherActivity extends AppCompatActivity {
             Log.d(TAG, "checkPermission: ");
             getLocation();
         }
-    }*/
+    }
 
 
     @Override
@@ -156,11 +156,11 @@ public class WeatherActivity extends AppCompatActivity {
         switch (requestCode) {
             case ACCESS_FINE_LOCATION_COMMANDS_REQUEST_CODE: {
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    // 权限被用户同意;
+                    // 权限同意;
                     Log.d(TAG, "onRequestPermissionsResult: ");
                     getLocation();
                 } else {
-                    // 权限被用户拒绝;
+                    // 权限拒绝;
                     Toast.makeText(this, "定位请求失败", Toast.LENGTH_SHORT).show();
                 }
                 return;
@@ -172,7 +172,7 @@ public class WeatherActivity extends AppCompatActivity {
     //获取定位
     private void getLocation() {
         //gps
-        GPSUtils.getInstance(this).getLngAndLat(new GPSUtils.OnLocationResultListener() {
+        GPSUtils.getInstance(WeatherActivity.this).getLngAndLat(new GPSUtils.OnLocationResultListener() {
             double latitude;
             double longitude;
 
@@ -236,6 +236,7 @@ public class WeatherActivity extends AppCompatActivity {
             String[] avoids = avoid.split("　");
             Log.d(TAG, "dataBindView: avoids--" + avoid);
             tv_avoid.setText(avoids[0] + "  " + avoids[1] + "  " + avoids[2]); //忌
+
             ArrayList<Daily> weathers = weatherCity.getDaily();
             weathers.remove(0);
             lv_weathers.setAdapter(new weatherAdapter(weathers));
@@ -330,7 +331,7 @@ public class WeatherActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
-        GPSUtils.getInstance(this).removeListener();
+      //  GPSUtils.getInstance(this).removeListener();
         super.onDestroy();
     }
 }

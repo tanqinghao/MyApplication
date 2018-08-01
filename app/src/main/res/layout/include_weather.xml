@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_iw_temperature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="19sp"
+        android:text="@string/default_temperature"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="40dp"
+        android:textColor="@color/weather_fontcolor"
+        />
+
+    <TextView
+        android:id="@+id/tv_unit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:text="@string/unit_celsius"
+        android:textSize="19sp"
+        app:layout_constraintStart_toEndOf="@+id/tv_iw_temperature"
+        tools:ignore="MissingConstraints"
+        android:textColor="@color/weather_fontcolor"
+        tools:layout_editor_absoluteY="40dp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        app:layout_constraintStart_toEndOf="@+id/tv_unit"
+        app:srcCompat="@drawable/weather_1"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="30dp" />
+
+    <ImageView
+        android:id="@+id/img_iw_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="14dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_iw_temperature"
+        app:srcCompat="@drawable/positioning_icon"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/tv_iv_location_city"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@string/default_location"
+        android:textSize="11sp"
+        app:layout_constraintStart_toEndOf="@+id/img_iw_location"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="80dp"
+        android:textColor="@color/weather_fontcolor"
+        />
+
+    <TextView
+        android:id="@+id/tv_weather"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="阵雨"
+        android:textSize="11sp"
+        app:layout_constraintStart_toEndOf="@+id/tv_iv_location_city"
+        tools:ignore="MissingConstraints"
+        android:textColor="@color/weather_fontcolor"
+        tools:layout_editor_absoluteY="80dp" />
+
+    <TextView
+        android:id="@+id/tv_calader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="11dp"
+        android:text="@string/default_calader"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_iw_location"
+        tools:ignore="MissingConstraints"
+        android:textColor="@color/weather_fontcolor"
+        />
+
+    <TextView
+        android:id="@+id/tv_year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="11dp"
+        android:text="戊戌年"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_calader"
+        tools:ignore="MissingConstraints"
+        android:textColor="@color/weather_fontcolor"
+        />
+
+    <TextView
+        android:id="@+id/tv_iw_lunar_calendar"
+        android:layout_width="wrap_content"
+        android:layout_height="17dp"
+        android:layout_marginStart="8dp"
+        android:text="四月十四日"
+        app:layout_constraintStart_toEndOf="@+id/tv_year"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="134dp"
+        android:textColor="@color/weather_fontcolor"
+        />
+
+</android.support.constraint.ConstraintLayout>

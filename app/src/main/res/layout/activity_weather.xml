@@ -172,10 +172,12 @@
     <RelativeLayout
         android:id="@+id/rl_weather"
         android:layout_width="161dp"
-        android:layout_height="179dp"
+        android:layout_height="180dp"
+        android:layout_marginEnd="24dp"
         android:layout_marginStart="57dp"
         android:layout_marginTop="46dp"
         android:background="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tv_weather_state"
         app:layout_constraintTop_toBottomOf="@+id/img_weather_exit"
         tools:ignore="MissingConstraints">
@@ -272,29 +274,36 @@
 
     </RelativeLayout>
 
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
     <LinearLayout
         android:id="@+id/linearLayout_weather"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_marginTop="60dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_weather_exit"
+        app:layout_constraintTop_toBottomOf="@+id/guideline"
         tools:ignore="MissingConstraints">
 
         <ListView
             android:id="@+id/lv_weather_items"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:divider="@drawable/list_item_divider_weather"
+            android:dividerHeight="1dp"
             android:fadeScrollbars="false"
             android:fadingEdge="none"
             android:footerDividersEnabled="false"
             android:headerDividersEnabled="false"
             android:listSelector="@android:color/transparent"
             android:overScrollMode="never"
-            android:divider="@drawable/list_item_divider_weather"
-            android:dividerHeight="1dp"
             android:scrollbars="none">
 
         </ListView>
